@@ -6,19 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>엔제리너스</title>
     <link rel="stylesheet" href="css/common.css">
-    <link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css" rel="stylesheet">
     <script src="js/jquery-3.6.0.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css" rel="stylesheet">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="js/common.js"></script> 
+    <script src="js/common.js" defer></script> 
 
-    <style>
-        * {font-family: ‘SUIT’, sans-serif;}
-    </style>
+
 
 </head>
 <body>
-  <div id="headerWrap">
-  <header id="header">
+  
+  <header id="header" class="on">
     <h1><a href="#">엔제리너스</a></h1>
     <nav id="membership">
         <h2 class="hidden">로그인/회원가입</h2>
@@ -69,7 +67,6 @@
           </ul>
     </nav>
   </header>
-  </div>
 
      <main>
       <section id="sliderWrap">
@@ -85,31 +82,43 @@
               <a href="#" class="sliderpoint">구매바로가기</a>
             </div>
           </li>
-          <li class="slider slider2"><div>슬라이더2</div></li>
+          <li class="slider slider2"><div>슬라이더2</div>
+            <div>
+              <dl>
+                <dt>무더운 여름을 함께 날려버릴 엔제리너스만의</dt>
+                <dd>아메리카노 1+1 이벤트</dd>
+                <dd>이벤트 바로가기</dd>
+              </dl>
+              <a href="#">구매바로가기</a>
+            </div>
+          </li>
+          <li class="slider slider3"><div>슬라이더3</div></li>
         </ul>
 
         <div id="sliderBtn">
-          <a href="#" class="sliderBtn1 active"><span>1</span></a>
-          <a href="#" class="sliderBtn2"><span>2</span></a>
-          <a href="#" class="sliderBtn3"><span>일시정지</span></a>
+          <a href="#" class="on"></a>
+          <a href="#"></a>
+          <a href="#"></a>
 
       </div>
 
     </section>
 
   <section id="product">
-    <h2><span>angel in us menu</span></h2>
-    <p class="subtitle">엔제리너스와의 특별한 만남</p>
-    <p>다양한 메뉴를 즐겨보세요</p>
+    <div class="text_box">
+      <h2><span>angel in us menu</span></h2>
+      <p class="subtitle">엔제리너스와의 특별한 만남</p>
+      <p><span>다양한 메뉴를 즐겨보세요</span></p>
+    </div>
     <div id="productAll">
-      <div id="drinks">
+      <div class="drinks">
       <ul>
         <li><a href="#"><img src="image/coffee.png" alt="콜드브루"><br>콜드브루</a></li>
         <li><a href="#"><img src="image/vanila.png" alt="바닐라라떼"><br>바닐라라떼</a></li>
         <li><a href="#"><img src="image/green.png" alt="녹차라떼"><br>녹차라떼</a></li>
         <li><a href="#"><img src="image/cooke.png" alt="쿠키크림스노우"><br>쿠키크림스노우</a></li>
         <li><a href="#"><img src="image/roto.png" alt="로투스"><br>로투스</a></li>
-        <li><a href="#"><img src="image/strow.png" alt="딸기스노우">딸기스노우</a></li>
+        <li><a href="#"><img src="image/mint.png" alt="민트스노우"><br>민트스노우</a></li>
         </ul>
       </div>
       <div id="productBtn">
@@ -133,20 +142,26 @@
   <h3>event</h3>
   <p> 엔제리너스에서 진행중인 이벤트 둘러보세요!</p>
   <div id="eventList">
+  <article class="event">
   <dl id="content1">
         <dt>엔제리너스 쪄죽뜨 무료이벤트</dt>
         <dd>더워죽어도 뜨거움을 버리지못하는 당신을 위해</dd>
-        <dd class="on"><a href="#">이벤트보기</a></dd>
+        <dd class="on1"><a href="#">이벤트보기</a></dd>
   </dl>
-  <dl id="content2">
+</article>
+<article class="event">
+<dl id="content2">
         <dt>order free</dt>
-        <dd>이달의 케이크주문시 아메리카노 무료</dd>
-        <dd class="on"><a href="#">이벤트보기</a></dd>
+        <dd>이달의 케이크주문시<br> 아메리카노 무료 !</dd>
+        <dd class="on2"><a href="#">이벤트보기</a></dd>
   </dl>
+</article>
+<article class="event">
   <dl id="content3">
         <dt>세트로 더 맛있게</dt>
-        <dd class="on"><a href="#">이벤트보기</a></dd>
+        <dd class="on3"><a href="#">이벤트보기</a></dd>
   </dl>
+</article>
 </div>
 <div id="cardBoxbottom">
   <div></div>
@@ -158,10 +173,10 @@
 
     <section id="lotteEatz">
       <div id="innerLotteEatz">
-        <h2>angel in us lotte eatz</h2>
+        <h2 class="test">angel in us lotte eatz</h2>
         <div>
-          <p>롯데잇츠와 함께하는 angel in us<br>다양하게 즐겨보세요!</p><br>
-          <a href="#">바로가기</a>
+          <p class="test">롯데잇츠와 함께하는 angel in us<br>다양하게 즐겨보세요!</p><br>
+          <a href="#" class="test">바로가기</a>
         </div>
       </div>
     </section>

@@ -16,14 +16,15 @@ body { font-family: 'SUIT', sans-serif; }
 
 
 
-#header { position: relative; top: 0; left: 0; z-index: 999; width: 100%; height: 50px; display: flex; justify-content: center; text-align: center;  }
-#header h1 { position: absolute; top: 20px; left: 70px; width: 250px; }
-#header h1  a { height: 66px; display: block; background: url(../image/logo.png) no-repeat; text-indent: -9999px;}
+#header { overflow: hidden; transition: 0.3s; position: absolute; top: 0; left: 0; right: 0; z-index: 999; width: 100%; height: 70px; display: flex; justify-content: center; text-align: center;  background: #fff; box-shadow: 2px 2px rgba(0, 0, 0, 0.2); }
+#header.on::after { content:""; position: absolute; width: 100%; height: 70px; box-shadow:  1px 1px rgba(0, 0, 0, 0.2); }
+#header.on { height: 320px;}
+#header h1 { position: absolute; top: 25px; left: 70px; width: 250px; }
+#header h1  a { height: 66px; display: block; background: url(../image/logo.png) no-repeat;  text-indent: -9999px;}
 #header h2 a { color: #fff; }
-#headerWrap.on { height: 400px; background: #fff; }
-#headerWrap.on::before { content:""; position: absolute; top: 80px; left: 0; width: 100%; height: 400px;}
+
 /* myPage */
-#membership {  position: absolute; bottom: 10px; right: 20px;}
+#membership {  position: absolute; top: 30px; right: 20px;}
 #membership ul { display: flex; bottom: 5px;  }
 #membership ul li { position: relative; font-size: 15px;}
 #membership ul li a { color: #000;}
@@ -33,22 +34,26 @@ body { font-family: 'SUIT', sans-serif; }
                                 height: 16px; border-right: 1px solid #000;}
 #membership ul li.join::before { content:""; position: absolute; top: 0px; left: 0;
                                     height: 16px; border-left: 1px solid #d1d1d1;}
-#gnb { margin-left: 100px; overflow: hidden;}
+#gnb { margin-left: 100px; background: #fff; }
 #gnbList { display: flex; }
-#gnbList > li { position: relative; bottom: 5px; width: 180px; text-align: center;  }
-#gnbList > li > a {  width: 200px; height: 70px; line-height: 62px;
+#gnbList > li { position: relative; top: 0px; width: 180px; height: 70px; text-align: center;  }
+#gnbList > li > a { display: block; width: 180px; height: 70px; line-height: 70px;
                     box-sizing: border-box;
-                    color: #000; font-size: 20px;}
-#gnbList li a:hover {color:#eb6100; font-weight: normal; border-bottom: 1px solid #eb6100;  background-image: linear-gradient(transparent calc(100% - 2px), #ff9239 1px) }
-
-.snb li { margin-bottom: 28px; }
+                    color: #000; font-size: 18px; }
+#gnbList > li > a::after { content: ""; position: absolute; left: 50%; top: 70px; width: 0; border-bottom: 5px solid #fc7847; transition: 0.5s; border-bottom-left-radius: 5px; border-top-left-radius: 5px; border-bottom-right-radius: 5px; border-top-right-radius: 5px; }
+#gnbList li:hover > a::after { left: 0; width: 100%; }
+/* #gnbList > li:hover > a { width: 180px; height: 70px; border-bottom: 1px solid #eb6100; }                    */
+/* #gnbList li:hover {color:#eb6100; font-weight: normal; } */
+.snb { padding: 10px 0;}
+.snb {line-height: 30px; }
+.snb li { margin-bottom: 28px; margin-top: 15px; }
 .snb li a { color: #000; font-size: 16px; text-transform: uppercase; }
-.snb li a:hover { color:rgb(255, 149, 0); font-weight: bold;}
+.snb li a:hover { color:rgb(255, 149, 0); font-weight: bold; width: 5px;}
 
 /* 슬라이더공통 */
-#sliderWrap { overflow: hidden; }
-#sliderList { position: relative; width: 200%; display: flex; align-items: center; }
-#sliderList .slider { position: relative; width: 100%; height: 682px; font-size: 16px; color: #fff; }
+#sliderWrap { overflow: hidden; margin-top: 50px;}
+#sliderList { position: relative; width: 300%; overflow: hidden;}
+#sliderList .slider { position: relative; width: 33.3333%; height: 682px; float: left; font-size: 16px; color: #fff; }
 #sliderList .slider div { position: relative; width: 1200px; height: 682px;  margin: 0 auto;}
 #sliderList .slider dl { width:100%; font-size: 18px; text-transform: uppercase; }
 #sliderList .slider dt { font-size: 16px; margin-bottom: 38px; }
@@ -65,66 +70,85 @@ body { font-family: 'SUIT', sans-serif; }
 #sliderList .slider1 div dl  { width: 500px; padding-top: 240px; text-align: center; }
 #sliderList .slider1 div dl .point {position: absolute; top: 115px; width: 500px; padding-top: 60px;
     background: url(../image/wing.png) no-repeat center; font-size: 18px; text-align: center;}
+
    #sliderList .slider1 a { margin-left: 141px; }
    #sliderList .slider2 { background: #7ba6a4; }
+   #sliderList .slider3 { background: #b357ff; }
 
 #sliderBtn { display: flex; position: absolute; top: 700px; z-index: 99;  display: flex; left: calc(50% - 60px);  }
 #sliderBtn a { display: block; width: 11px; height: 11px; margin: 0 20px; text-align: center; background: rgb(253, 253, 253); border-radius: 50%;   }
+#sliderBtn a.on { background: #ff6944; }
 #sliderBtn a:nth-child(1) { background:#ff6944}
 #sliderBtn a span { position: absolute; left: -9999px; }
 /* 메뉴 */
-#product { position: relative; left: 30px; margin:0 auto; padding-top: 124px;
+#product { position: relative; left: 30px; margin:0 auto; padding-top: 20px;
     width: 1200px; height: 800px; text-align: center; margin-top: 108px; }
-#product h2 { position: relative; margin-bottom: 50px;  font-size: 40px; font-weight: bold; text-transform: uppercase; }
-#product h2 span { border-bottom: 2px solid #eb6100; }
-#product p { margin-bottom: 85px; font-size: 22px; }
-#product p:nth-child(3) { padding-top: 83px;}
+    #product h2 { position: relative; margin-bottom: 10px;  font-size: 40px; font-weight: bold; text-transform: uppercase; }
+    #product h2 span { border-bottom: 2px solid #eb6100; }
+    #product p { margin-bottom: 20px; font-size: 22px; }
 
-#product .subtitle { position: absolute; top: 85px; width: 100%; text-align: center; font-size: 16px; }
-#productAll { overflow: hidden; width: 100%; height: 100%; }
-#drinks {position: relative; right: 45px; display: flex; justify-content: space-evenly; align-items: center;  }
-#drinks ul { width:100%; overflow: hidden; margin-top: 110px; display: flex; justify-content:space-between;   align-items: center; margin-bottom: 107px; }
-#drinks li {  margin-left: 95px; }
-#drinks li a { margin-left:5px; line-height: 53px; font-size: 23px; color: #000;}
+    #product .subtitle { position: absolute; top: 0; width: 100%; text-align: center; font-size: 16px; padding-bottom: 15px;}
+    #productAll { overflow: hidden; width: 100%; height: 100%;  }
+#product p:nth-child(3) { padding-top: 10px;}
+.drinks {position: relative; }
+.drinks ul { width:1800px; overflow: hidden; margin-top: 50px; display: flex; justify-content:space-between;   align-items: center; margin-bottom: 107px; }
+.drinks li { width: 310px; text-align: center; }
+.drinks li a {line-height: 53px; font-size: 23px; color: #000;}
 
-#productBtn a { display: block; width: 25px; height: 50px; position: absolute; top: 730px;}
+#productBtn a { display: block; width: 25px; height: 50px; position: absolute; top: 380px;}
 #productBtn a.nextBtn { background: url(../image/nextbtn.png) no-repeat; right: 0;}
 #productBtn a.prevBtn { background: url(../image/prevbtn.png) no-repeat; left: 0;}
 #slidebottom {   position: relative; left: 10px; display: flex; justify-content: center; }
-#slidebottom div { margin-bottom: 108px;  width: 452px; height: 8px; background:#d1d1d1;}
+#slidebottom div { position: absolute; bottom: 70px;  width: 452px; height: 8px; background:#d1d1d1;}
 #slidebottom a { color: #000; }
-#slidebottom div:nth-child(2) {position: absolute; left:370px; background: #757575; width: 130px; height: 8px; }
-#Productmore {position: relative; left: 3px; top: 59px; margin: 0 auto; bottom: 94px; border: 1px solid #000; width: 179px; height: 47px; padding: 17px 72px; font-size: 15px; color: #000; text-transform: uppercase; font-weight: bold;
+#slidebottom div:nth-child(2) {position: absolute; left:370px; background: #757575; width: 140px; height: 8px; }
+#Productmore {position: relative; left: 3px; bottom: 160px; margin: 0 auto; border: 1px solid #000; width: 179px; height: 47px; padding: 17px 72px; font-size: 15px; color: #000; text-transform: uppercase; font-weight: bold;
     border-radius: 7px;  }
 #Productmore:hover { border:none; background: rgba(255, 145, 0, 0.932); color: #fff; font-size: 17px; transition: 0.3s; opacity: 0.8; border-top-left-radius: 30px; border-bottom-right-radius: 30px;}
 
 
 
-#cardBox { position: relative; top: 94px; left: 30px; margin: 400px auto; width: 1200px; text-align: center; }
-#cardBox p { margin: 0 auto; position: relative;  bottom: 62px; right: 15px;}
+#cardBox { position: relative; top: 70px; left: 30px; margin: 50px auto; width: 1200px; text-align: center;}
+.event { position: relative; width: 350px; height: 500px; display: flex; flex-flow: column;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.03),
+    0 0px 2px rgba(0,0,0,0.10),
+    0 2px 4px rgba(0,0,0,0.10),
+    0 4px 8px rgba(0,0,0,0.10),
+    0 8px 16px rgba(0,0,0,0.10),
+    0 16px 32px rgba(0,0,0,0.10);}
+#cardBox p { margin: 0 auto; position: relative;  bottom: 110px; right: 15px;}
 #cardBox h3 { width: 120px; margin-bottom: 150px; font-size: 35px; text-transform: uppercase; border-bottom: 2px solid #eb6100; margin-left: 530px; }
-#eventList { display: flex; justify-content: space-evenly; align-items: center;  }
+#eventList {position: relative; bottom: 110px; display: flex; justify-content: space-evenly; align-items: center;  }
 #cardBox dl { text-align:center; width: 350px; height: 500px;}
 #eventList { line-height: 50px; margin-top: 91px; text-align: center;}
 #eventList dt{ display: flex; justify-content: space-evenly; font-size: 35px; color:#fff; margin: 30px; text-transform: uppercase;}
 #eventList dd { color: #fff;}
-.moRe {border-radius: 7px; width: 180px; height:48px; padding: 20px 67px; display: flex; justify-content: center; align-items: center;   margin-top: 184px; margin-left:518px; border: 1px solid #000; font-size: 15px; text-transform: uppercase; font-weight: bold; color: #000; margin-bottom: 172px; }
+.moRe {position: relative; bottom: 180px;  border-radius: 7px; width: 180px; height:48px; padding: 20px 67px; display: flex; justify-content: center; align-items: center;   margin-top: 184px; margin-left:518px; border: 1px solid #000; font-size: 15px; text-transform: uppercase; font-weight: bold; color: #000; margin-bottom: 120px; }
 .moRe:hover {  border:none; background: rgba(255, 145, 0, 0.932); color: #fff; font-size: 17px; transition: 0.3s; opacity: 0.8; border-top-left-radius: 30px; border-bottom-right-radius: 30px; }
-#cardBoxbottom { position: relative; margin-top: 45px; display: flex; justify-content: center;}
-#cardBoxbottom div { margin-top: 100px; width: 452px; height: 8px; background: #d1d1d1; }
+#cardBoxbottom { position: relative; margin-top: 10px; display: flex; justify-content: center;}
+#cardBoxbottom div { position: relative; bottom: 75px; width: 452px; height: 8px; background: #d1d1d1; }
 #cardBoxbottom div:nth-child(2) {position: absolute;  left:370px; background: #757575; width: 140px; height: 8px;}
 
-
-#content1 a { color: #fff; width: 148px; height: 25px; padding: 10px 45px; font-size: 16px; }
+#content1 { transition: 0.3s;}
+#content1:hover::before { width: 350px; height: 500px; border: 5px solid #00a8eb; }
+#content1::after { content:""; width: 370px; height:610px; background: rgba(0, 0, 0, 0.3);}
+#content2 { transition: 0.3s;}
+#content2:hover {width: 350px; height: 500px; border: 5px solid #eb6100; background: linear-gradient(rgba(0, 0, 0, 0.3));}
+#content3 { transition: 0.3s;}
+#content3:hover { width: 350px; height: 500px; border: 5px solid #adf32c; }
+#content1 a {  color: #fff; width: 148px; height: 25px; padding: 10px 45px; font-size: 16px; }
 #content1 a:hover { }
 #content2 a { color: #fff; width: 148px; height: 25px;  padding: 10px 45px;}
 #content3 a { color: #fff;  width: 148px; height: 25px;  padding: 10px 45px;}
-#content1 .on {   display: block; margin-top: 150px; position: absolute; margin-left: 100px; margin-bottom: 230px; border: 1px solid #fff;}
-#content1 .on:hover {}
-#content2 .on {  display: block; margin-top: 280px; position: absolute; margin-left: 100px; margin-top: 250px; border: 1px solid #fff;}
-#content3 .on { display: block; margin-top: 360px; position: absolute; margin-left: 100px; margin-top: 300px; border: 1px solid #fff;}
+#content1 .on1:hover { background: #eb6100; border-bottom-right-radius: 30px; border-top-left-radius: 30px; border:none; opacity: 0.8;  }
+#content2 .on2:hover { background: #eb6100; border-bottom-right-radius: 30px; border-top-left-radius: 30px; border:none; opacity: 0.8;  }
+#content3 .on3:hover { background: #eb6100; border-bottom-right-radius: 30px; border-top-left-radius: 30px; border:none; opacity: 0.8;  }
+
+#content1 .on1 { transition: 0.3s; display: block; margin-top: 200px; position: absolute; margin-left: 100px; margin-bottom: 250px; border: 1px solid #fff;}
+#content2 .on2 { transition: 0.3s;display: block; margin-top: 150px; position: absolute; margin-left: 100px; margin-top: 200px; border: 1px solid #fff;}
+#content3 .on3 { transition: 0.3s; display: block; margin-top: 360px; position: absolute; margin-left: 100px; margin-top: 300px; border: 1px solid #fff;}
 #content1 dt {  }
-#content2 dt dd { line-height: 50px;} 
+#content2 dt dd { line-height: 60px;} 
 
 #content1 { width: 100%; height: 601px; background: url(../image/hot.png) no-repeat center /cover;}
 #content2 {  width: 100%; height: 601px; background: url(../image/oder-free.png) no-repeat center /cover;}
@@ -136,6 +160,21 @@ body { font-family: 'SUIT', sans-serif; }
 #innerLotteEatz { position: relative; width: 1200px; margin: 0 auto; padding-top: 170px;
                   display: flex;flex-flow: column; align-items: center;
                   background: url(../image/lotteeatz.png) no-repeat 0 bottom; }
+@keyframes fadeInRight {
+    0% { opacity: 0; 
+         transform: translate3d(100%,0,0);
+    }
+    to{
+        opacity: 1;
+        transform: translateZ(1);
+    }
+}
+
+#innerLotteEatz .test { 
+    position: relative;
+    animation: fadeInRight 1.5s;
+}
+
 
 #lotteEatz p {  color: #fff; font-size: 40px; margin-left: 558px; text-transform: uppercase; }
 #lotteEatz a { position:relative; width:124px; height: 35px; border: 1px solid #fff; margin-left: 680px; padding: 11px 42px; color: #fff; font-size: 18px; }
@@ -183,7 +222,7 @@ body { font-family: 'SUIT', sans-serif; }
 #News dd { font-size: 14px; }
 #News li {  position: relative; }
 #Newsbottom { border-bottom: 1px solid #000;}
-.more {  position: absolute; right: 5px;  top:150px; width: 110px; height: 25px; font-size: 15px; background: url(../image/more.png) no-repeat right;  transition: right 0.3s; transform: translateY(-10%); text-transform: lowercase; font-style: normal; font-weight:  bold; color: #000;}
+.more {  position: absolute; right: 5px;  top:150px; width: 79px; height: 25px; font-size: 15px; background: url(../image/more.png) no-repeat right;  transition: right 0.3s; transform: translateY(-10%); text-transform: lowercase; font-style: normal; font-weight:  bold; color: #000;}
 .more:hover { background-position-x: 75px; transition:0.5s;}
 .more::after {content: ""; width: 25px; height: 25px; border-radius: 25px; background: #ff6944; position: absolute; left:40px; z-index: -1; }
 #shop { background: url(../image/angel.png) center / cover;  height: 534px; display: flex; justify-content: center; align-items: center; flex-flow: column;}
@@ -199,9 +238,9 @@ body { font-family: 'SUIT', sans-serif; }
     display: flex; justify-content: center; }
 #footer1 {  width: 430px; height: 100%;}
 #footer a { font-size: 15px; color:#fff; }
-#footer div { margin: 0 auto;}
-#footer p { margin-top:70px; color: #fff;}
-#footer small { color: #fff;}
+#footer div {margin: 0 auto;}
+#footer p {  margin-top:70px; color: #fff;}
+#footer small { color: #fff; position: absolute;}
 #sns { margin-left: 987px; width: 430px; height: 100%; line-height: 100px;}
 #sns a { margin: 0 10px 0 10px;}
 
